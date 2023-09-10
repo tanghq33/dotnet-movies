@@ -19,16 +19,8 @@ public class MoviesController : ControllerBase
     [HttpPost("movies")]
     public async Task<IActionResult> Create([FromBody] CreateMovieRequest request)
     {
-        var movie = new Movie
-        {
-            Id = Guid.NewGuid(),
-            Title = request.Title,
-            YearOfRelease = request.YearOfRelease,
-            Genres = request.Genres.ToList()
-        };
-
+        Movie movie = request.MapToMovie();
         await _movieRepository.CreateAsync(movie);
-
         return Created($"/api/movies/{movie.Id}", movie);
     }
 }
