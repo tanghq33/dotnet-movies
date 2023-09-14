@@ -142,6 +142,13 @@ public class MovieRepository : IMovieRepository
         return movie;
     }
 
+    /// <summary>
+    /// Question:
+    /// Why there is no result check for deleting existing genre and inserting new genres?
+    /// What if the the delete and insert process failed?
+    /// </summary>
+    /// <param name="movie"></param>
+    /// <returns></returns>
     public async Task<bool> UpdateAsync(Movie movie)
     {
         var connection = await _dbConnectionFactory.CreateConnectionAsync();

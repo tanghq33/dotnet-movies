@@ -39,7 +39,9 @@ public class MovieService : IMovieService
     }
 
     /// <summary>
-    /// Question: Why there is no result check for _movieRepository.UpdateAsync,
+    /// Question: 
+    /// Similar question to MovieRepository
+    /// Why there is no result check for _movieRepository.UpdateAsync,
     /// what if the repository failed to update the movie ???
     /// </summary>
     /// <param name="movie"></param>
